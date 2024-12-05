@@ -1,42 +1,55 @@
-const express = require("express");
-const nodemailer = require("nodemailer");
-require("dotenv").config();
+const { SMTPServer } = require('smtp-server');
+const fs = require('fs');
+const simpleParser = require('mailparser').simpleParser;
 
-const app = express();
-app.use(express.json()); // JSON 요청 처리
+// JSON 파일 경로
+const DATA_FILE = './cctv_data.json';
 
-// Nodemailer를 통해 SMTP 전송 설정
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465, // Gmail의 SMTP 포트 (SSL)
-  secure: true, // SSL/TLS 사용 여부
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD,
-  },
+if (!fs.existsSync(DATA_FILE)) {
+    fs.writeFileSync(DATA_FILE, JSON.stringify([]));
+}
+
+// SMTP 서버 생성
+const server = new SMTPServer({
+    onData(stream, session, callback) {
+        console.log('test : ', stream);
+        let emailData = '';
+
+        stream.on('data', chunk => {
+            emailData += chunk;
+        });
+
+        stream.on('end', async () => {
+            try {
+                // 이메일 데이터 파싱
+                const parsedEmail = await simpleParser(emailData);
+
+                const { from, subject, text, date } = parsedEmail;
+                const cctvEvent = {
+                    from: from.text,
+                    subject,
+                    text,
+                    timestamp: date || new Date(),
+                };
+
+                // JSON 파일에 저장
+                const cctvData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+                cctvData.push(cctvEvent);
+                fs.writeFileSync(DATA_FILE, JSON.stringify(cctvData, null, 2));
+
+                console.log('CCTV Event Saved:', cctvEvent);
+                callback(); // 성공
+            } catch (error) {
+                console.error('Error parsing email:', error);
+                callback(error); // 실패
+            }
+        });
+    },
+
+    // 인증 비활성화
+    authOptional: true,
 });
 
-// 간단한 라우트: 이메일 전송 테스트
-app.post("/send-email", async (req, res) => {
-  const { to, subject, text } = req.body;
-
-  try {
-    const info = await transporter.sendMail({
-      from: process.env.EMAIL, // 발신자 이메일
-      to, // 수신자 이메일
-      subject, // 이메일 제목
-      text, // 이메일 본문
-    });
-
-    console.log("Email sent:", info.messageId);
-    res.status(200).send({ success: true, message: "Email sent successfully!" });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).send({ success: false, message: "Failed to send email." });
-  }
-});
-
-// 서버 실행
-app.listen(8000, () => {
-  console.log("SMTP Server running on http://localhost:8000");
+server.listen(25, () => {
+    console.log('SMTP Server running');
 });
