@@ -1,44 +1,119 @@
 [
   {
     "from": "\"veronica\" <qkrduswn0404@gmail.com>",
-    "subject": "IP CAMERA: test mail",
-    "text": "this is a test mail from IP CAMERA\n",
-    "timestamp": "2024-12-05T03:48:19.051Z"
-  },
-  {
-    "from": "sender@example.com",
-    "subject": "test Thu, 05 Dec 2024 12:51:33 +0900",
-    "text": "This is a test mailing\n\n\n",
-    "timestamp": "2024-12-05T03:51:33.000Z"
-  },
-  {
-    "from": "qkrduswn0404@naver.com",
-    "subject": "test Thu, 05 Dec 2024 12:53:02 +0900",
-    "text": "This is a test mailing\n\n\n",
-    "timestamp": "2024-12-05T03:53:02.000Z"
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,15:52:26\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 15시 52분 26초",
+    "attachments": [
+      "attachments/2024- 12- 6- 15시 52분 26초.jpg"
+    ]
   },
   {
     "from": "\"veronica\" <qkrduswn0404@gmail.com>",
-    "subject": "IP CAMERA: test mail",
-    "text": "this is a test mail from IP CAMERA\n",
-    "timestamp": "2024-12-05T06:02:35.139Z"
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,15:54:19\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 15시 54분 19초",
+    "attachments": [
+      "attachments/2024- 12- 6- 15시 54분 19초.jpg"
+    ]
   },
   {
     "from": "\"veronica\" <qkrduswn0404@gmail.com>",
-    "subject": "IP CAMERA: test mail",
-    "text": "this is a test mail from IP CAMERA\n",
-    "timestamp": "2024-12-05T06:52:13.330Z"
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,15:55:30\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 15시 55분 29초",
+    "attachments": [
+      "attachments/2024- 12- 6- 15시 55분 29초.jpg"
+    ]
   },
   {
     "from": "\"veronica\" <qkrduswn0404@gmail.com>",
-    "subject": "IP CAMERA: test mail",
-    "text": "this is a test mail from IP CAMERA\n",
-    "timestamp": "2024-12-05T06:54:04.855Z"
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,15:55:41\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 15시 55분 40초",
+    "attachments": [
+      "attachments/2024- 12- 6- 15시 55분 40초.jpg"
+    ]
   },
   {
     "from": "\"veronica\" <qkrduswn0404@gmail.com>",
-    "subject": "IP CAMERA: test mail",
-    "text": "this is a test mail from IP CAMERA\n",
-    "timestamp": "2024-12-05T06:54:16.992Z"
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,15:55:54\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 15시 55분 53초",
+    "attachments": [
+      "attachments/2024- 12- 6- 15시 55분 53초.jpg"
+    ]
+  },
+  {
+    "from": "\"veronica\" <qkrduswn0404@gmail.com>",
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,15:56:30\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 15시 56분 29초",
+    "attachments": [
+      "attachments/2024- 12- 6- 15시 56분 29초.jpg"
+    ]
+  },
+  {
+    "from": "\"veronica\" <qkrduswn0404@gmail.com>",
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,16:05:42\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 16시 5분 42초",
+    "attachments": [
+      "attachments/2024- 12- 6- 16시 5분 42초.jpg"
+    ]
+  },
+  {
+    "from": "\"veronica\" <qkrduswn0404@gmail.com>",
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,16:07:44\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 16시 7분 43초",
+    "attachments": [
+      "attachments/2024- 12- 6- 16시 7분 43초.jpg"
+    ]
+  },
+  {
+    "from": "\"veronica\" <qkrduswn0404@gmail.com>",
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,16:08:54\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 16시 8분 53초",
+    "attachments": [
+      "attachments/2024- 12- 6- 16시 8분 53초.jpg"
+    ]
+  },
+  {
+    "from": "\"veronica\" <qkrduswn0404@gmail.com>",
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,16:09:19\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 16시 9분 19초",
+    "attachments": [
+      "attachments/2024- 12- 6- 16시 9분 19초.jpg"
+    ]
+  },
+  {
+    "from": "\"veronica\" <qkrduswn0404@gmail.com>",
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,16:09:34\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 16시 9분 34초",
+    "attachments": [
+      "attachments/2024- 12- 6- 16시 9분 34초.jpg"
+    ]
+  },
+  {
+    "from": "\"veronica\" <qkrduswn0404@gmail.com>",
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,17:12:07\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 17시 12분 7초",
+    "attachments": [
+      "attachments/2024- 12- 6- 17시 12분 7초.jpg"
+    ]
+  },
+  {
+    "from": "\"veronica\" <qkrduswn0404@gmail.com>",
+    "subject": "IP CAMERA: on Camera1: Motion Detection",
+    "text": "This is an automatically generated e-mail from your IPC.\n\nEVENT TYPE: Motion Detection\nEVENT TIME: 2024-12-06,17:14:30\nIPC NAME: IP CAMERA\nCHANNEL NAME: Camera 01\nCHANNEL NUMBER: 1\nIPC S/N: DS-2CD1021-I20191225AAWRE04073868",
+    "timestamp": "2024. 12. 6. 17시 14분 29초",
+    "attachments": [
+      "attachments/2024- 12- 6- 17시 14분 29초.jpg"
+    ]
   }
 ]
