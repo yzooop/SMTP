@@ -17,48 +17,11 @@ if (!fs.existsSync(ATTACHMENTS_DIR)) {
     fs.mkdirSync(ATTACHMENTS_DIR, { recursive: true });
 }
 
-// 날짜를 원하는 형식으로 변환 (파일 이름에 적합한 형식)
-function formatDateToFilename(inputDate) {
-    const d = new Date(inputDate);
-
-    if (isNaN(d)) {
-        console.warn('Invalid date input, using current date instead.');
-        inputDate = new Date();
-    }
-
-    const date = d.toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul' }).replace(/\./g, '-').trim();
-    const time = d.toLocaleTimeString('ko-KR', {
-        timeZone: 'Asia/Seoul',
-        hour12: false, // 24시간 형식
-    });
-
-    return `${date} ${time}`; // 예: 2024-12-06 15:50:55
-}
-
-// 날짜를 표시 형식으로 변환
-function formatDateToTimestamp(inputDate) {
-    const d = new Date(inputDate);
-
-    if (isNaN(d)) {
-        console.warn('Invalid date input, using current date instead.');
-        inputDate = new Date();
-    }
-
-    const date = d.toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul' });
-    const time = d.toLocaleTimeString('ko-KR', {
-        timeZone: 'Asia/Seoul',
-        hour12: false, // 24시간 형식
-    });
-
-    return `${date} ${time}`; // 예: 2024.12.06 15:50:55
-}
-
 // 첨부파일 저장 함수
-function saveAttachmentsWithTimestamp(attachments) {
+function saveAttachmentsWithTimestamp(attachments, timestamp) {
     const savedAttachments = [];
 
     for (const attachment of attachments) {
-        const timestamp = formatDateToFilename(new Date());
         const filename = `${timestamp}.jpg`; // 타임스탬프 기반 파일 이름
         const filePath = path.join(ATTACHMENTS_DIR, filename);
 
@@ -66,10 +29,19 @@ function saveAttachmentsWithTimestamp(attachments) {
         fs.writeFileSync(filePath, attachment.content);
         savedAttachments.push(filePath);
 
-        console.log(`Attachment saved: ${filePath}`);
+        console.log('Attachment saved');
     }
 
     return savedAttachments;
+}
+
+// 다음 ID 가져오기
+function getNextId(cctvData) {
+    if (!Array.isArray(cctvData) || cctvData.length === 0) {
+        return 1;
+    }
+    const maxId = Math.max(...cctvData.map(event => event.id || 0)); // ID가 없을 경우를 대비
+    return maxId + 1;
 }
 
 // SMTP 서버 생성
@@ -85,32 +57,30 @@ const server = new SMTPServer({
             try {
                 // 이메일 데이터 파싱
                 const parsedEmail = await simpleParser(emailData);
-
-                const { from, subject, text, date, attachments } = parsedEmail;
+                const timestampMatch = parsedEmail.text.match(/EVENT TIME: (.+)/);
+                const timestamp = timestampMatch ? timestampMatch[1].trim() : new Date().toISOString(); // 기본값 처리
+                const { attachments } = parsedEmail;
 
                 // 첨부파일 저장
                 let savedAttachments = [];
                 if (attachments && attachments.length > 0) {
-                    console.log(`Found ${attachments.length} attachment(s).`);
-                    savedAttachments = saveAttachmentsWithTimestamp(attachments);
-                } else {
-                    console.log('No attachments found.');
+                    savedAttachments = saveAttachmentsWithTimestamp(attachments, timestamp);
                 }
+
+                // CCTV 데이터 가져오기
+                const cctvData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+                const nextId = getNextId(cctvData);
 
                 // CCTV 이벤트 저장
                 const cctvEvent = {
-                    from: from.text,
-                    subject,
-                    text,
-                    timestamp: formatDateToTimestamp(date || new Date()),
-                    attachments: savedAttachments, // 저장된 첨부파일 경로 추가
+                    id: nextId,
+                    time: timestamp,
                 };
 
-                const cctvData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
                 cctvData.push(cctvEvent);
                 fs.writeFileSync(DATA_FILE, JSON.stringify(cctvData, null, 2));
 
-                console.log('CCTV Event Saved:', cctvEvent);
+                console.log('CCTV Event Saved !');
                 callback(); // 성공
             } catch (error) {
                 console.error('Error parsing email:', error);
